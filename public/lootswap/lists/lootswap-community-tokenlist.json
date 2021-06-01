@@ -1,16 +1,13 @@
 {
-    "name": "Lootswap Community",
-    "timestamp": "2021-05-28T19:07:20.961Z",
-    "version": {
-      "major": 1,
-      "minor": 5,
-      "patch": 0
-    },
-    "tags": {},
-    "logoURI": "https://lootswap.finance/tokens/LOOT.png",
-    "keywords": [
-      "lootswap",
-      "community"
-    ],
-    "tokens": []
-  }
+  "name": "Lootswap Community",
+  "timestamp": "2021-05-28T19:07:20.961Z",
+  "version": {
+    "major": 1,
+    "minor": 5,
+    "patch": 0
+  },
+  "tags": {},
+  "logoURI": "https://lootswap.finance/tokens/LOOT.png",
+  "keywords": ["lootswap", "community"],
+  "tokens": []
+}

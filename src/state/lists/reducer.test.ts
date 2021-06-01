@@ -435,9 +435,7 @@ describe('list reducer', () => {
 
       it('clears the current lists', () => {
         expect(
-          store.getState().byUrl[
-            'https://unpkg.com/@lootswap/default-token-list@latest/uniswap-default.tokenlist.json'
-          ]
+          store.getState().byUrl['https://unpkg.com/@lootswap/default-token-list@latest/uniswap-default.tokenlist.json']
         ).toBeUndefined()
         expect(store.getState().byUrl['https://unpkg.com/@lootswap/default-token-list@latest']).toBeUndefined()
       })
@@ -488,9 +486,7 @@ describe('list reducer', () => {
 
       it('does not remove lists not in last initialized list of lists', () => {
         expect(
-          store.getState().byUrl[
-            'https://unpkg.com/@lootswap/default-token-list@latest/uniswap-default.tokenlist.json'
-          ]
+          store.getState().byUrl['https://unpkg.com/@lootswap/default-token-list@latest/uniswap-default.tokenlist.json']
         ).toEqual({
           error: null,
           current: STUB_TOKEN_LIST,
