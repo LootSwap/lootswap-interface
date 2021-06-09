@@ -38,18 +38,18 @@ export const STAKING_REWARDS_INFO: {
     },
     {
       pid: 6,
-      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/WISB'),
-      active: false
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/bscWISB'),
+      active: true
     },
     {
       pid: 7,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/XYA'),
-      active: false
+      active: true
     },
     {
       pid: 8,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'WONE/bscMatic'),
-      active: false
+      active: true
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],

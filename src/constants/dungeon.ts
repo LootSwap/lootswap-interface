@@ -30,7 +30,7 @@ export const DUNGEON_POOLS: {
     },
     {
       pid: 6,
-      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/WISB')
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/bscWISB')
     },
     {
       pid: 7,
