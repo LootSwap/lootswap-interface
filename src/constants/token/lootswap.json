@@ -51,6 +51,30 @@
       "logoURI": "https://exchange.pancakeswap.finance/images/coins/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c.png"
     },
     {
+      "chainId": 1666600000,
+      "address": "0xbDa99C8695986B45a0dD3979cC6f3974D9753D30",
+      "symbol": "LOOT",
+      "name": "Loot",
+      "decimals": 18,
+      "logoURI": "https://lootswap.finance/tokens/LOOT-LP.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0xb1f6E61E1e113625593a22fa6aa94F8052bc39E0",
+      "symbol": "bscBNB",
+      "name": "BNB Token",
+      "decimals": 18,
+      "logoURI": "https://lootswap.finance/tokens/BNB.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x0aB43550A6915F9f67d0c454C2E90385E6497EaA",
+      "symbol": "bscBUSD",
+      "name": "BUSD Token",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/9576/small/BUSD.png"
+    },
+    {
       "name": "BAND Protocol Token",
       "symbol": "BAND",
       "address": "0xad6caeb32cd2c308980a548bd0bc5aa4306c6c18",
