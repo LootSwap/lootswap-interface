@@ -18,6 +18,7 @@ import {
   RedirectToAddLiquidity
 } from './AddLiquidity/redirects'
 import Earn from './Earn'
+import EarnArchived from './Earn/Archived'
 import Manage from './Earn/Manage'
 import Dungeon from './Dungeon'
 import MigrateV1 from './MigrateV1'
@@ -129,6 +130,7 @@ export default function App() {
                 <Route exact strict path="/find" component={PoolFinder} />
                 <Route exact strict path="/pool" component={Pool} />
                 <Route exact strict path="/staking" component={Earn} />
+                <Route exact strict path="/staking/archived" component={EarnArchived} />
                 <Route exact strict path={dungeonSettings?.path} component={Dungeon} />
                 {blockchain === Blockchain.ETHEREUM && <Route exact strict path="/vote" component={Vote} />}
                 <Route exact strict path="/create" component={RedirectToAddLiquidity} />

@@ -79,7 +79,7 @@ const BottomSection = styled.div<{ showBackground: boolean }>`
   z-index: 1;
 `
 
-export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) {
+export default function PoolCard({ stakingInfo, isArchived }: { stakingInfo: StakingInfo; isArchived: boolean }) {
   const govToken = useGovernanceToken()
   const govTokenPrice = useBUSDPrice(govToken)
 
@@ -91,7 +91,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const token1 = stakingInfo.tokens[1]
   const currency0 = unwrappedToken(token0)
   const currency1 = unwrappedToken(token1)
-  const backgroundColor = useColor(stakingInfo.baseToken)
+  const backgroundColor = useColor(stakingInfo?.baseToken)
 
   return (
     <Wrapper showBackground={isStaking} bgColor={backgroundColor}>
@@ -106,7 +106,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
 
         <StyledInternalLink to={`/staking/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '100%' }}>
           <ButtonPrimary padding="8px" borderRadius="8px">
-            {isStaking ? 'Manage' : 'Deposit'}
+            {isStaking || isArchived ? 'Manage' : 'Deposit'}
           </ButtonPrimary>
         </StyledInternalLink>
       </TopSection>

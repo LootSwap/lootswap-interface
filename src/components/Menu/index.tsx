@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Send, Code, MessageSquare, PieChart } from 'react-feather'
+import { Send, Code, MessageSquare, PieChart, Twitter } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useActiveWeb3React } from '../../hooks'
@@ -122,6 +122,10 @@ export default function Menu() {
           <MenuItem id="link" href="https://t.me/lootswap">
             <Send size={14} />
             Telegram
+          </MenuItem>
+          <MenuItem id="link" href="https://twitter.com/lootswapfinance">
+            <Twitter size={14} />
+            Twitter
           </MenuItem>
           <MenuItem id="link" href={CODE_LINK}>
             <Code size={14} />

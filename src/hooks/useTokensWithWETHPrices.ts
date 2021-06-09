@@ -1,4 +1,4 @@
-import { WETH, Token, Blockchain } from '@lootswap/sdk'
+import { ChainId, WETH, Token, Blockchain } from '@lootswap/sdk'
 import { useMemo } from 'react'
 import useGovernanceToken from './useGovernanceToken'
 import useTokenWETHPrice from './useTokenWETHPrice'
@@ -15,7 +15,8 @@ export default function useTokensWithWETHPrices(): Record<string, any> {
   const govToken = useGovernanceToken()
   const govTokenWETHPrice = useTokenWETHPrice(govToken)
 
-  const BUSD: Token | undefined = getToken(chainId, 'BUSD')
+  const BUSDTicker = chainId !== ChainId.HARMONY_TESTNET ? 'BUSD' : '1BUSD'
+  const BUSD: Token | undefined = getToken(chainId, BUSDTicker)
   const BUSDWETHPrice = useTokenWETHPrice(BUSD)
 
   const USDCTicker = blockchain === Blockchain.HARMONY ? '1USDC' : 'USDC'

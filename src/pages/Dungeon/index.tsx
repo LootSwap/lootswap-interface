@@ -26,8 +26,9 @@ import { GOVERNANCE_TOKEN_INTERFACE } from '../../constants/abis/governanceToken
 import { DUNGEON_INTERFACE } from '../../constants/abis/dungeon'
 import useGovernanceToken from 'hooks/useGovernanceToken'
 import useTotalCombinedTVL from '../../hooks/useTotalCombinedTVL'
+import useDungeonRatio from '../../hooks/useDungeonRatio'
 import { useStakingInfo } from '../../state/stake/hooks'
-import filterStakingInfos from '../../utils/filterStakingInfos'
+import useFilterStakingInfos from '../../hooks/useFilterStakingInfos'
 import CombinedTVL from '../../components/CombinedTVL'
 
 const PageWrapper = styled(AutoColumn)`
@@ -114,7 +115,8 @@ export default function Dungeon({
 }: RouteComponentProps<{ currencyIdA: string; currencyIdB: string }>) {
   const { account, chainId } = useActiveWeb3React()
 
-  const filteredStakingInfos = filterStakingInfos(useStakingInfo())
+  const isActive = true
+  const filteredStakingInfos = useFilterStakingInfos(useStakingInfo(isActive), isActive)
   const TVLs = useTotalCombinedTVL(filteredStakingInfos)
 
   const govToken = useGovernanceToken()
@@ -127,13 +129,16 @@ export default function Dungeon({
 
   const dungeon = chainId ? DUNGEON[chainId] : undefined
   const dungeonSettings = chainId ? DUNGEON_SETTINGS[chainId] : undefined
-  const dungeonTVL = TVLs.totalDungeonTVL
   const dungeonBalance: TokenAmount | undefined = useTokenBalance(
     account ?? undefined,
     dungeon,
     'balanceOf',
     DUNGEON_INTERFACE
   )
+  const govTokenDungeonTokenRatio = useDungeonRatio()
+  const adjustedDungeonBalance = govTokenDungeonTokenRatio
+    ? dungeonBalance?.multiply(govTokenDungeonTokenRatio)
+    : undefined
 
   const userLiquidityStaked = dungeonBalance
   const userLiquidityUnstaked = govTokenBalance
@@ -180,7 +185,7 @@ export default function Dungeon({
         <AutoColumn gap="lg" style={{ width: '100%', maxWidth: '720px' }}>
           <NonCenteredDataRow style={{ alignItems: 'baseline' }}>
             <TYPE.mediumHeader></TYPE.mediumHeader>
-            {dungeonTVL && dungeonTVL.greaterThan('0') && (
+            {TVLs?.stakingPoolTVL?.greaterThan('0') && (
               <TYPE.black>
                 <span role="img" aria-label="wizard-icon" style={{ marginRight: '0.5rem' }}>
                   🏆
@@ -215,7 +220,14 @@ export default function Dungeon({
             <AutoColumn gap="sm">
               <RowBetween>
                 <div>
-                  <TYPE.black>Your a{govToken?.symbol} Balance</TYPE.black>
+                  <TYPE.black>
+                    Your a{govToken?.symbol} Balance
+                    {govTokenDungeonTokenRatio && (
+                      <TYPE.italic display="inline" marginLeft="0.25em">
+                        (1 a{govToken?.symbol} = {govTokenDungeonTokenRatio.toSignificant(4)} {govToken?.symbol})
+                      </TYPE.italic>
+                    )}
+                  </TYPE.black>
                 </div>
               </RowBetween>
               <RowBetween style={{ alignItems: 'baseline' }}>
@@ -235,10 +247,17 @@ export default function Dungeon({
           </StyledBottomCard>
         </BottomSection>
 
-        {account && (
+        {account && adjustedDungeonBalance && adjustedDungeonBalance?.greaterThan('0') && (
+          <TYPE.main>
+            You have {adjustedDungeonBalance?.toFixed(2, { groupSeparator: ',' })} {govToken?.symbol} tokens staked in
+            the&nbsp;{dungeonSettings?.name}.
+          </TYPE.main>
+        )}
+
+        {account && (!adjustedDungeonBalance || adjustedDungeonBalance?.equalTo('0')) && (
           <TYPE.main>
             You have {govTokenBalance?.toFixed(2, { groupSeparator: ',' })} {govToken?.symbol} tokens available to
-            deposit to the {dungeonSettings?.name}
+            deposit to the {dungeonSettings?.name}.
           </TYPE.main>
         )}
 

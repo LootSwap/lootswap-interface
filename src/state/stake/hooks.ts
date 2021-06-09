@@ -1,6 +1,5 @@
 import { CurrencyAmount, JSBI, Token, TokenAmount, Pair, Fraction } from '@lootswap/sdk'
 import { useMemo } from 'react'
-import { STAKING_REWARDS_INFO } from '../../constants/staking'
 import { useActiveWeb3React } from '../../hooks'
 import { useSingleCallResult, useSingleContractMultipleData } from '../multicall/hooks'
 import { tryParseAmount } from '../swap/hooks'
@@ -11,6 +10,7 @@ import { Interface } from '@ethersproject/abi'
 import useGovernanceToken from '../../hooks/useGovernanceToken'
 import useTokensWithWETHPrices from '../../hooks/useTokensWithWETHPrices'
 import useBUSDPrice from '../../hooks/useBUSDPrice'
+import useFilterStakingRewardsInfo from '../../hooks/useFilterStakingRewardsInfo'
 import getBlocksPerYear from '../../utils/getBlocksPerYear'
 import calculateWethAdjustedTotalStakedAmount from '../../utils/calculateWethAdjustedTotalStakedAmount'
 import calculateApr from '../../utils/calculateApr'
@@ -70,24 +70,11 @@ export interface StakingInfo {
 }
 
 // gets the staking info from the network for the active chain id
-export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
+export function useStakingInfo(active: boolean | undefined = undefined, pairToFilterBy?: Pair | null): StakingInfo[] {
   const { chainId, account } = useActiveWeb3React()
   const masterLooterContract = useMasterLooterContract()
 
-  const masterInfo = useMemo(
-    () =>
-      chainId
-        ? STAKING_REWARDS_INFO[chainId]?.filter(stakingRewardInfo =>
-            pairToFilterBy === undefined
-              ? true
-              : pairToFilterBy === null
-              ? false
-              : pairToFilterBy.involvesToken(stakingRewardInfo.tokens[0]) &&
-                pairToFilterBy.involvesToken(stakingRewardInfo.tokens[1])
-          ) ?? []
-        : [],
-    [chainId, pairToFilterBy]
-  )
+  const masterInfo = useFilterStakingRewardsInfo(chainId, active, pairToFilterBy)
 
   const tokensWithPrices = useTokensWithWETHPrices()
 
@@ -294,7 +281,7 @@ export function useStakingInfo(pairToFilterBy?: Pair | null): StakingInfo[] {
 
 export function useTotalGovTokensEarned(): TokenAmount | undefined {
   const govToken = useGovernanceToken()
-  const stakingInfos = useStakingInfo()
+  const stakingInfos = useStakingInfo(true)
 
   return useMemo(() => {
     if (!govToken) return undefined
@@ -309,7 +296,7 @@ export function useTotalGovTokensEarned(): TokenAmount | undefined {
 
 export function useTotalLockedGovTokensEarned(): TokenAmount | undefined {
   const govToken = useGovernanceToken()
-  const stakingInfos = useStakingInfo()
+  const stakingInfos = useStakingInfo(true)
 
   return useMemo(() => {
     if (!govToken) return undefined
@@ -324,7 +311,7 @@ export function useTotalLockedGovTokensEarned(): TokenAmount | undefined {
 
 export function useTotalUnlockedGovTokensEarned(): TokenAmount | undefined {
   const govToken = useGovernanceToken()
-  const stakingInfos = useStakingInfo()
+  const stakingInfos = useStakingInfo(true)
 
   return useMemo(() => {
     if (!govToken) return undefined

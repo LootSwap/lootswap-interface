@@ -97,7 +97,7 @@ export default function ModifiedStakingModal({ isOpen, onDismiss, stakingInfo }:
 
   let feeInfoUrl = ''
   if (blockchain == Blockchain.HARMONY) {
-    feeInfoUrl = 'https://docs.lootswap.org/lootswap/fees'
+    feeInfoUrl = 'https://lootswapfinance.medium.com/lootswap-finance-tokenomics-and-resources-d185138d9867'
   }
 
   async function onWithdraw() {

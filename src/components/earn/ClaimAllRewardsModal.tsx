@@ -13,6 +13,7 @@ import { useTransactionAdder } from '../../state/transactions/hooks'
 import { useActiveWeb3React } from '../../hooks'
 import { calculateGasMargin } from '../../utils'
 import useGovernanceToken from '../../hooks/useGovernanceToken'
+import { TokenAmount } from '@lootswap/sdk'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -22,10 +23,10 @@ const ContentWrapper = styled(AutoColumn)`
 interface StakingModalProps {
   isOpen: boolean
   onDismiss: () => void
-  stakingInfo: StakingInfo
+  stakingInfos: StakingInfo[]
 }
 
-export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: StakingModalProps) {
+export default function ClaimAllRewardsModal({ isOpen, onDismiss, stakingInfos }: StakingModalProps) {
   const { account } = useActiveWeb3React()
 
   const govToken = useGovernanceToken()
@@ -35,6 +36,10 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
   const [hash, setHash] = useState<string | undefined>()
   const [attempting, setAttempting] = useState(false)
   const [failed, setFailed] = useState<boolean>(false)
+
+  const rewards = stakingInfos.map(({ earnedAmount }) => earnedAmount)
+  const sumRewards =
+    govToken && rewards ? rewards.reduce<TokenAmount>((a, b) => a.add(b), new TokenAmount(govToken, '0')) : undefined
 
   function wrappedOnDismiss() {
     setHash(undefined)
@@ -46,13 +51,15 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
   const masterLooter = useMasterLooterContract()
 
   async function onClaimReward() {
-    if (masterLooter && stakingInfo?.stakedAmount) {
+    if (masterLooter) {
       setAttempting(true)
 
-      const estimatedGas = await masterLooter.estimateGas.claimReward(stakingInfo.pid)
+      const pids = stakingInfos.map(({ pid }) => pid)
+
+      const estimatedGas = await masterLooter.estimateGas.claimRewards(pids)
 
       await masterLooter
-        .claimReward(stakingInfo.pid, {
+        .claimRewards(pids, {
           gasLimit: calculateGasMargin(estimatedGas)
         })
         .then((response: TransactionResponse) => {
@@ -75,9 +82,6 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
   if (!account) {
     error = 'Connect Wallet'
   }
-  if (!stakingInfo?.stakedAmount) {
-    error = error ?? 'Enter an amount'
-  }
 
   return (
     <Modal isOpen={isOpen} onDismiss={wrappedOnDismiss} maxHeight={90}>
@@ -87,15 +91,19 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
             <TYPE.mediumHeader>Claim</TYPE.mediumHeader>
             <CloseIcon onClick={wrappedOnDismiss} />
           </RowBetween>
-          {stakingInfo?.earnedAmount && (
+          {sumRewards?.greaterThan('0') && (
             <AutoColumn justify="center" gap="md">
               <TYPE.body fontWeight={600} fontSize={36}>
-                {stakingInfo?.earnedAmount?.toSignificant(6)}
+                {sumRewards?.toSignificant(6)}
               </TYPE.body>
               <TYPE.body>Unclaimed {govToken?.symbol}</TYPE.body>
             </AutoColumn>
           )}
-          <ButtonError disabled={!!error} error={!!error && !!stakingInfo?.stakedAmount} onClick={onClaimReward}>
+          <TYPE.subHeader style={{ textAlign: 'center' }}>
+            The sum above includes both locked and unlocked {govToken?.symbol} rewards across all the pools you are
+            staking in.
+          </TYPE.subHeader>
+          <ButtonError disabled={!!error} error={!!error} onClick={onClaimReward}>
             {error ?? 'Claim'}
           </ButtonError>
         </ContentWrapper>
@@ -103,9 +111,7 @@ export default function ClaimRewardModal({ isOpen, onDismiss, stakingInfo }: Sta
       {attempting && !hash && !failed && (
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
-            <TYPE.body fontSize={20}>
-              Claiming {stakingInfo?.earnedAmount?.toSignificant(6)} {govToken?.symbol}
-            </TYPE.body>
+            <TYPE.body fontSize={20}>Claiming {govToken?.symbol} rewards</TYPE.body>
           </AutoColumn>
         </LoadingView>
       )}

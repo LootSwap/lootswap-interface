@@ -1,28 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { JSBI } from '@lootswap/sdk'
 import { BLOCKCHAIN_SETTINGS } from '@lootswap/sdk-extra'
 import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 import { STAKING_REWARDS_INFO } from '../../constants/staking'
 import { useStakingInfo } from '../../state/stake/hooks'
-import { TYPE, StyledInternalLink } from '../../theme'
+import { TYPE } from '../../theme'
 //import { ButtonPrimary } from '../../components/Button'
 import PoolCard from '../../components/earn/PoolCard'
-import { CustomButtonWhite } from '../../components/Button'
 import AwaitingRewards from '../../components/earn/AwaitingRewards'
 import { RowBetween } from '../../components/Row'
 import { CardSection, ExtraDataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
 //import { Countdown } from './Countdown'
 import Loader from '../../components/Loader'
-import ClaimAllRewardsModal from '../../components/earn/ClaimAllRewardsModal'
 import { useActiveWeb3React } from '../../hooks'
 import useGovernanceToken from '../../hooks/useGovernanceToken'
-import useCalculateStakingInfoMembers from '../../hooks/useCalculateStakingInfoMembers'
-import useTotalCombinedTVL from '../../hooks/useTotalCombinedTVL'
 import useBaseStakingRewardsEmission from '../../hooks/useBaseStakingRewardsEmission'
 import { OutlineCard } from '../../components/Card'
 import useFilterStakingInfos from '../../hooks/useFilterStakingInfos'
-import CombinedTVL from '../../components/CombinedTVL'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -62,14 +57,11 @@ flex-direction: column;
 `};
 `
 
-export default function Earn() {
+export default function EarnArchived() {
   const { chainId, account } = useActiveWeb3React()
   const govToken = useGovernanceToken()
   const blockchainSettings = chainId ? BLOCKCHAIN_SETTINGS[chainId] : undefined
-  const activePoolsOnly = true
-  const stakingInfos = useStakingInfo(activePoolsOnly)
-
-  const [showClaimRewardsModal, setShowClaimRewardsModal] = useState(false)
+  const stakingInfos = useStakingInfo(false)
 
   /**
    * only show staking cards with balance
@@ -84,15 +76,7 @@ export default function Earn() {
   const emissionsPerMinute =
     baseEmissions && blockchainSettings ? baseEmissions.multiply(JSBI.BigInt(blocksPerMinute)) : undefined
 
-  const activeStakingInfos = useFilterStakingInfos(stakingInfos, activePoolsOnly)
   const inactiveStakingInfos = useFilterStakingInfos(stakingInfos, false)
-  const stakingInfoStats = useCalculateStakingInfoMembers(chainId)
-  const hasArchivedStakingPools =
-    (stakingInfoStats?.inactive && stakingInfoStats?.inactive > 0) || inactiveStakingInfos?.length > 0
-
-  const stakingInfosWithRewards = useFilterStakingInfos(activeStakingInfos, true, true)
-
-  const TVLs = useTotalCombinedTVL(activeStakingInfos)
 
   return (
     <PageWrapper gap="lg" justify="center">
@@ -111,27 +95,6 @@ export default function Earn() {
                   governance token.
                 </TYPE.white>
               </RowBetween>{' '}
-              {stakingInfosWithRewards?.length > 0 && (
-                <RowBetween>
-                  <CustomButtonWhite
-                    padding="8px"
-                    borderRadius="8px"
-                    width="7em"
-                    onClick={() => setShowClaimRewardsModal(true)}
-                  >
-                    Claim all ({stakingInfosWithRewards.length})
-                  </CustomButtonWhite>
-                </RowBetween>
-              )}
-              {hasArchivedStakingPools && (
-                <RowBetween>
-                  <StyledInternalLink to={`/staking/archived`}>
-                    <CustomButtonWhite padding="8px" borderRadius="8px">
-                      Archived Pools
-                    </CustomButtonWhite>
-                  </StyledInternalLink>
-                </RowBetween>
-              )}
             </AutoColumn>
           </CardSection>
           <CardBGImage />
@@ -139,23 +102,9 @@ export default function Earn() {
         </ExtraDataCard>
       </TopSection>
 
-      <ClaimAllRewardsModal
-        isOpen={showClaimRewardsModal}
-        onDismiss={() => setShowClaimRewardsModal(false)}
-        stakingInfos={stakingInfosWithRewards}
-      />
-
       <AutoColumn gap="lg" style={{ width: '100%', maxWidth: '720px' }}>
         <DataRow style={{ alignItems: 'baseline' }}>
-          <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>Quests</TYPE.mediumHeader>
-          {TVLs?.stakingPoolTVL?.greaterThan('0') && (
-            <TYPE.black style={{ marginTop: '0.5rem' }}>
-              <span role="img" aria-label="wizard-icon" style={{ marginRight: '0.5rem' }}>
-                🏆
-              </span>
-              <CombinedTVL />
-            </TYPE.black>
-          )}
+          <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>Pools</TYPE.mediumHeader>
         </DataRow>
 
         <AwaitingRewards />
@@ -165,14 +114,14 @@ export default function Earn() {
             <Loader style={{ margin: 'auto' }} />
           ) : account && !stakingRewardsExist ? (
             <OutlineCard>No active pools</OutlineCard>
-          ) : account && stakingInfos?.length !== 0 && !activeStakingInfos ? (
+          ) : account && stakingInfos?.length !== 0 && !inactiveStakingInfos ? (
             <OutlineCard>No active pools</OutlineCard>
           ) : !account ? (
             <OutlineCard>Please connect your wallet to see available pools</OutlineCard>
           ) : (
-            activeStakingInfos?.map(stakingInfo => {
+            inactiveStakingInfos?.map(stakingInfo => {
               // need to sort by added liquidity here
-              return <PoolCard key={stakingInfo.pid} stakingInfo={stakingInfo} isArchived={false} />
+              return <PoolCard key={stakingInfo.pid} stakingInfo={stakingInfo} isArchived={true} />
             })
           )}
         </PoolSection>

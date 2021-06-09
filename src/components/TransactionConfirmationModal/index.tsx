@@ -16,6 +16,7 @@ import { useActiveWeb3React } from '../../hooks'
 import useAddTokenToMetamask from 'hooks/useAddTokenToMetamask'
 import useBlockchain from '../../hooks/useBlockchain'
 import getExplorerName from '../../utils/getExplorerName'
+import getBlockchainAdjustedCurrency from '../../utils/getBlockchainAdjustedCurrency'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -82,9 +83,10 @@ function TransactionSubmittedContent({
 }) {
   const theme = useContext(ThemeContext)
   const { library } = useActiveWeb3React()
-  const { addToken, success } = useAddTokenToMetamask(currencyToAdd)
   const blockchain = useBlockchain()
   const explorerName = getExplorerName(blockchain)
+  const currencyToAddAdjusted = getBlockchainAdjustedCurrency(blockchain, currencyToAdd)
+  const { addToken, success } = useAddTokenToMetamask(currencyToAddAdjusted)
 
   return (
     <Wrapper>
@@ -107,15 +109,15 @@ function TransactionSubmittedContent({
               </Text>
             </ExternalLink>
           )}
-          {currencyToAdd && library?.provider?.isMetaMask && (
+          {currencyToAddAdjusted && library?.provider?.isMetaMask && (
             <ButtonLight mt="12px" padding="6px 12px" width="fit-content" onClick={addToken}>
               {!success ? (
                 <RowFixed>
-                  Add {currencyToAdd.symbol} to Metamask <StyledLogo src={MetaMaskLogo} />
+                  Add {currencyToAddAdjusted.symbol} to Metamask <StyledLogo src={MetaMaskLogo} />
                 </RowFixed>
               ) : (
                 <RowFixed>
-                  Added {currencyToAdd.symbol}{' '}
+                  Added {currencyToAddAdjusted.symbol}{' '}
                   <CheckCircle size={'16px'} stroke={theme.green1} style={{ marginLeft: '6px' }} />
                 </RowFixed>
               )}

@@ -1,6 +1,6 @@
 import { ChainId, Token, WETH } from '@lootswap/sdk'
 import { TOKENS } from '@lootswap/sdk-extra'
-import { ZERO_ONE_ADDRESS } from '../constants/index'
+import { GOVERNANCE_TOKEN, ZERO_ONE_ADDRESS } from '../constants/index'
 
 export default function getTokenWithDefault(chainId: ChainId, symbol: string): Token {
   symbol = symbol.toUpperCase()
@@ -16,6 +16,16 @@ export default function getTokenWithDefault(chainId: ChainId, symbol: string): T
       const retrievedToken = TOKENS[chainId].firstBySymbol(symbol)
       token = retrievedToken ? retrievedToken : new Token(chainId, ZERO_ONE_ADDRESS, 18, symbol, symbol)
       break
+  }
+
+  if (
+    (!token || token.address === ZERO_ONE_ADDRESS) &&
+    [ChainId.HARMONY_TESTNET, ChainId.BSC_TESTNET].includes(chainId)
+  ) {
+    const govToken = GOVERNANCE_TOKEN[chainId]
+    if (symbol.toUpperCase() === govToken.symbol?.toUpperCase()) {
+      token = govToken
+    }
   }
 
   return token

@@ -23,7 +23,6 @@ import { ZERO_ADDRESS } from '../../constants'
 import { BlueCard } from '../Card'
 import { ColumnCenter } from '../Column'
 import { calculateGasMargin } from '../../utils'
-import useGovernanceToken from '../../hooks/useGovernanceToken'
 
 /*const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
   display: flex;
@@ -75,7 +74,6 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
     onDismiss()
   }, [onDismiss])
 
-  const govToken = useGovernanceToken()
   const masterLooter = useMasterLooterContract()
   const referral = ZERO_ADDRESS
 
@@ -155,15 +153,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
               <BlueCard>
                 <AutoColumn gap="10px">
                   <TYPE.link fontWeight={400} color={'primaryText1'}>
-                    <b>Important:</b> There&apos;s <b>no deposit fee</b> when depositing funds to the liquidity farming
-                    pools.
-                    <br />
-                    <br />
-                    These fees are rewarded to the treasury which is owned by the {govToken?.symbol} DAO and its users.
-                    <br />
-                    <br />
-                    The allocation and use of the funds will be fully controlled by the {govToken?.symbol} DAO via
-                    active governance.
+                    <b>Important:</b> The deposit fee is now <b>0%</b>!
                   </TYPE.link>
                 </AutoColumn>
               </BlueCard>

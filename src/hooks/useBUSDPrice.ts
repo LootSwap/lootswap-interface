@@ -1,4 +1,4 @@
-import { Currency, currencyEquals, JSBI, Token, Price, WETH } from '@lootswap/sdk'
+import { Currency, currencyEquals, JSBI, Token, Price, WETH, ChainId } from '@lootswap/sdk'
 import { useMemo } from 'react'
 import { PairState, usePairs } from '../data/Reserves'
 import { useActiveWeb3React } from '.'
@@ -12,7 +12,8 @@ import getToken from '../utils/getToken'
 export default function useBUSDPrice(currency?: Currency): Price | undefined {
   const { chainId } = useActiveWeb3React()
   const wrapped = wrappedCurrency(currency, chainId)
-  const busd: Token | undefined = getToken(chainId, 'BUSD')
+  const busdTicker = chainId !== ChainId.HARMONY_TESTNET ? 'BUSD' : '1BUSD'
+  const busd: Token | undefined = getToken(chainId, busdTicker)
 
   const tokenPairs: [Currency | undefined, Currency | undefined][] = useMemo(
     () => [
