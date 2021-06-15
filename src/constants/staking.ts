@@ -50,6 +50,16 @@ export const STAKING_REWARDS_INFO: {
       pid: 8,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'WONE/bscMatic'),
       active: true
+    },
+    {
+      pid: 9,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/BUSD'),
+      active: true
+    },
+    {
+      pid: 10,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, '1UNI/1ETH'),
+      active: true
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],
