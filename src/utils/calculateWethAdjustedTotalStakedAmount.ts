@@ -34,6 +34,10 @@ function pairCurrencyAmountInWeth(
       return tokens?.bridgedETH?.price
         ? valueOfTotalStakedAmountInPairCurrency.multiply(tokens?.bridgedETH?.price)
         : valueOfTotalStakedAmountInPairCurrency
+    case tokens?.bscBNB?.token?.symbol?.toUpperCase():
+      return tokens?.bscBNB?.price
+        ? valueOfTotalStakedAmountInPairCurrency.multiply(tokens?.bscBNB?.price)
+        : valueOfTotalStakedAmountInPairCurrency
     default:
       return valueOfTotalStakedAmountInPairCurrency
   }

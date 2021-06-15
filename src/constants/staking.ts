@@ -60,6 +60,11 @@ export const STAKING_REWARDS_INFO: {
       pid: 10,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, '1UNI/1ETH'),
       active: true
+    },
+    {
+      pid: 11,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'bscBNB/bscCAKE'),
+      active: true
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],
