@@ -30,6 +30,9 @@ export default function useTokensWithWETHPrices(): Record<string, any> {
   const bridgedETH: Token | undefined = Blockchain.HARMONY ? getToken(chainId, '1ETH') : undefined
   const bridgedETHWETHPrice = useTokenWETHPrice(bridgedETH)
 
+  const bscBNB: Token | undefined = blockchain === Blockchain.HARMONY ? getToken(chainId, 'bscBNB') : undefined
+  const bscBNBWETHPrice = useTokenWETHPrice(bscBNB)
+
   return useMemo(() => {
     return {
       WETH: { token: weth, price: undefined },
@@ -37,7 +40,8 @@ export default function useTokensWithWETHPrices(): Record<string, any> {
       BUSD: { token: BUSD, price: BUSDWETHPrice },
       USDC: { token: USDC, price: USDCWETHPrice },
       bscBUSD: { token: bscBUSD, price: bscBUSDWETHPrice },
-      bridgedETH: { token: bridgedETH, price: bridgedETHWETHPrice }
+      bridgedETH: { token: bridgedETH, price: bridgedETHWETHPrice },
+      bscBNB: { token: bscBNB, price: bscBNBWETHPrice }
     }
   }, [
     chainId,
@@ -52,6 +56,8 @@ export default function useTokensWithWETHPrices(): Record<string, any> {
     bscBUSD,
     bscBUSDWETHPrice,
     bridgedETH,
-    bridgedETHWETHPrice
+    bridgedETHWETHPrice,
+    bscBNB,
+    bscBNBWETHPrice
   ])
 }

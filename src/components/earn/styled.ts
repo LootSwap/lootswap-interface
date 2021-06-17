@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { AutoColumn } from '../Column'
 
-import uImage from '../../assets/images/big_unicorn.png'
+//import uImage from '../../assets/images/big_unicorn.png'
 import xlUnicorn from '../../assets/images/xl_uni.png'
 import noise from '../../assets/images/noise.png'
 
@@ -37,7 +37,7 @@ export const ExtraDataCard = styled(AutoColumn)<{ disabled?: boolean }>`
 `
 
 export const CardBGImage = styled.span<{ desaturate?: boolean }>`
-  background: url(${uImage});
+  background: radial-gradient(91.85% 100% at 1.84% 0%,#2172E5 0%,#888D9B 100%)
   width: 1000px;
   height: 600px;
   position: absolute;

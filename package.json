@@ -1,6 +1,6 @@
 {
   "name": "@lootswap/interface",
-  "description": "Venomswap Interface",
+  "description": "Lootswap Interface",
   "homepage": ".",
   "private": true,
   "devDependencies": {
@@ -9,7 +9,7 @@
     "@lootswap/core": "^2.0.1",
     "@lootswap/periphery": "^2.0.1",
     "@lootswap/sdk": "^2.0.1",
-    "@lootswap/sdk-extra": "^1.0.5",
+    "@lootswap/sdk-extra": "^2.1.0",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",
@@ -129,6 +129,6 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@lootswap/default-token-list": "^2.0.0"
+    "@lootswap/default-token-list": "^2.2.0"
   }
 }
