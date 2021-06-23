@@ -23,6 +23,10 @@ import useEligibleDungeonPools from '../../hooks/useEligibleDungeonPools'
 
 const PAIR_INTERFACE = new Interface(IUniswapV2PairABI)
 
+// TODO: This is just a band-aid for now
+// and should be removed when a better fix is implemented
+const DISABLED_PIDS = [10, 11]
+
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
   padding: 1rem;
@@ -53,7 +57,9 @@ export default function ClaimModal({ isOpen, onDismiss }: ClaimModalProps) {
   }
 
   const autoLooter = useAutoLooterContract()
-  const stakingPools = useMemo(() => (chainId ? DUNGEON_POOLS[chainId] : []), [chainId])
+  const stakingPools = useMemo(() => (chainId ? DUNGEON_POOLS[chainId] : []), [chainId])?.filter(
+    pool => !DISABLED_PIDS.includes(pool.pid)
+  )
 
   const liquidityTokenAddresses = useMemo(
     () =>
