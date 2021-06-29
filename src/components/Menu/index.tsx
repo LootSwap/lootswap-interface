@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Send, Code, MessageSquare, PieChart, Twitter } from 'react-feather'
+import { Send, Code, MessageSquare, PieChart, Twitter, Activity } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useActiveWeb3React } from '../../hooks'
@@ -130,6 +130,10 @@ export default function Menu() {
           <MenuItem id="link" href={CODE_LINK}>
             <Code size={14} />
             Code
+          </MenuItem>
+          <MenuItem id="link" href="https://analytics.lootswap.finance/">
+            <Activity size={14} />
+            Analytics
           </MenuItem>
           {account && blockchain === Blockchain.ETHEREUM && (
             <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="12px" mt="0.5rem">
