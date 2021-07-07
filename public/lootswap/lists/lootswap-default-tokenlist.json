@@ -1,9 +1,9 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-06-08T23:31:32.722Z",
+  "timestamp": "2021-07-07T06:31:08.256Z",
   "version": {
     "major": 2,
-    "minor": 3,
+    "minor": 5,
     "patch": 0
   },
   "tags": {},
@@ -383,6 +383,22 @@
     },
     {
       "chainId": 1666600000,
+      "address": "0x044246137670A03ca790D7ED20AF0C552c88117c",
+      "symbol": "ARB",
+      "name": "Arbiter",
+      "decimals": 18,
+      "logoURI": "https://lootswap.finance/tokens/ARB.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x69f4e54C666f7DDaf66D11876f557EC21cB65F35",
+      "symbol": "BARD",
+      "name": "Bard",
+      "decimals": 18,
+      "logoURI": "https://lootswap.finance/tokens/BARD.png"
+    },
+    {
+      "chainId": 1666600000,
       "address": "0xb1f6E61E1e113625593a22fa6aa94F8052bc39E0",
       "symbol": "bscBNB",
       "name": "BNB Token",
@@ -411,7 +427,7 @@
       "symbol": "bscMatic",
       "name": "bscMatic Token",
       "decimals": 18,
-      "logoURI": "https://lootswap.finance/tokens/bscMATIC.png"
+      "logoURI": "https://lootswap.finance/tokens/bscMatic.png"
     },
     {
       "chainId": 1666600000,
@@ -419,7 +435,7 @@
       "symbol": "bscWISB",
       "name": "bscWise Token",
       "decimals": 18,
-      "logoURI": "https://lootswap.finance/tokens/WISB.png"
+      "logoURI": "https://lootswap.finance/tokens/bscWISB.png"
     },
     {
       "chainId": 1666600000,
@@ -463,11 +479,27 @@
     },
     {
       "chainId": 1666600000,
+      "address": "0x9fe8a9A6B4Af9BD656B0295bd5Ad4A65b37165aC",
+      "symbol": "NECRO",
+      "name": "Necromancer",
+      "decimals": 18,
+      "logoURI": "https://lootswap.finance/tokens/NECRO.png"
+    },
+    {
+      "chainId": 1666600000,
       "address": "0xc0431Ddcc0D213Bf27EcEcA8C2362c0d0208c6DC",
       "symbol": "oSWAP",
       "name": "OpenSwap Token",
       "decimals": 18,
       "logoURI": "https://lootswap.finance/tokens/OSWAP.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x25dceE96FCD63Ad88B812cCE02b3Fcf7d1504F2D",
+      "symbol": "TROLL",
+      "name": "Troll",
+      "decimals": 18,
+      "logoURI": "https://lootswap.finance/tokens/TROLL.png"
     },
     {
       "chainId": 1666600000,
