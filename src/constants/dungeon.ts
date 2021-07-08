@@ -51,6 +51,22 @@ export const DUNGEON_POOLS: {
     {
       pid: 11,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'bscBNB/bscCAKE')
+    },
+    {
+      pid: 12,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/TROLL')
+    },
+    {
+      pid: 13,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/NECRO')
+    },
+    {
+      pid: 14,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/ARB')
+    },
+    {
+      pid: 15,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/BARD')
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],

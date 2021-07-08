@@ -65,6 +65,26 @@ export const STAKING_REWARDS_INFO: {
       pid: 11,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'bscBNB/bscCAKE'),
       active: true
+    },
+    {
+      pid: 12,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/TROLL'),
+      active: true
+    },
+    {
+      pid: 13,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/NECRO'),
+      active: true
+    },
+    {
+      pid: 14,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/ARB'),
+      active: true
+    },
+    {
+      pid: 15,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/BARD'),
+      active: true
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],
