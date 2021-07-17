@@ -235,6 +235,24 @@ const StyledNavLink = styled(NavLink).attrs({
   }
 `
 
+const StyledLink = styled.a`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: left;
+  border-radius: 3rem;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text2};
+  font-size: 1rem;
+  width: fit-content;
+  margin: ${isMobile ? '0 5px' : '0 12px'};
+  font-weight: 500;
+  :hover,
+  :focus {
+    color: ${({ theme }) => darken(0.1, theme.text1)};
+  }
+`
+
 /*const StyledExternalLink = styled(ExternalLink).attrs({
   activeClassName
 })<{ isActive?: boolean }>`
@@ -385,6 +403,9 @@ export default function Header() {
               {dungeonSettings?.name}
             </StyledNavLink>
           )}
+          <StyledLink href="https://lootswap.finance" target="__blank">
+            Back To Lootswap V2
+          </StyledLink>
         </HeaderLinks>
       </HeaderRow>
       <HeaderControls>
