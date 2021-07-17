@@ -129,6 +129,6 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@lootswap/default-token-list": "^2.2.0"
+    "@lootswap/default-token-list": "^2.7.0"
   }
 }
