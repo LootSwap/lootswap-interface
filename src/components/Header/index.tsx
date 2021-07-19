@@ -107,6 +107,8 @@ const HeaderElementWrap = styled.div`
 const HeaderRow = styled(RowFixed)`
   ${({ theme }) => theme.mediaWidth.upToMedium`
    width: 100%;
+   flex-flow: wrap;
+   justify-content: center;
   `};
 `
 
@@ -114,7 +116,7 @@ const HeaderLinks = styled(Row)`
   justify-content: center;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     padding: 1rem 0 1rem 1rem;
-    justify-content: flex-end;
+    justify-content:center
 `};
 `
 
@@ -404,7 +406,7 @@ export default function Header() {
             </StyledNavLink>
           )}
           <StyledLink href="https://lootswap.finance" target="__blank">
-            Back To Lootswap V2
+            Version 2
           </StyledLink>
         </HeaderLinks>
       </HeaderRow>
