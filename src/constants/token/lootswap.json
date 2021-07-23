@@ -56,7 +56,7 @@
       "symbol": "LOOT",
       "name": "Loot",
       "decimals": 18,
-      "logoURI": "https://lootswap.finance/tokens/LOOT-LP.png"
+      "logoURI": "https://legacy.lootswap.finance/tokens/LOOT-LP.png"
     },
     {
       "chainId": 1666600000,
@@ -64,7 +64,7 @@
       "symbol": "bscBNB",
       "name": "BNB Token",
       "decimals": 18,
-      "logoURI": "https://lootswap.finance/tokens/BNB.png"
+      "logoURI": "https://legacy.lootswap.finance/tokens/BNB.png"
     },
     {
       "chainId": 1666600000,

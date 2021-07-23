@@ -107,6 +107,8 @@ const HeaderElementWrap = styled.div`
 const HeaderRow = styled(RowFixed)`
   ${({ theme }) => theme.mediaWidth.upToMedium`
    width: 100%;
+   flex-flow: wrap;
+   justify-content: center;
   `};
 `
 
@@ -114,7 +116,7 @@ const HeaderLinks = styled(Row)`
   justify-content: center;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     padding: 1rem 0 1rem 1rem;
-    justify-content: flex-end;
+    justify-content:center
 `};
 `
 
@@ -229,6 +231,24 @@ const StyledNavLink = styled(NavLink).attrs({
     color: ${({ theme }) => theme.text1};
   }
 
+  :hover,
+  :focus {
+    color: ${({ theme }) => darken(0.1, theme.text1)};
+  }
+`
+
+const StyledLink = styled.a`
+  ${({ theme }) => theme.flexRowNoWrap}
+  align-items: left;
+  border-radius: 3rem;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: ${({ theme }) => theme.text2};
+  font-size: 1rem;
+  width: fit-content;
+  margin: ${isMobile ? '0 5px' : '0 12px'};
+  font-weight: 500;
   :hover,
   :focus {
     color: ${({ theme }) => darken(0.1, theme.text1)};
@@ -385,6 +405,9 @@ export default function Header() {
               {dungeonSettings?.name}
             </StyledNavLink>
           )}
+          <StyledLink href="https://lootswap.finance" target="__blank">
+            Version 2
+          </StyledLink>
         </HeaderLinks>
       </HeaderRow>
       <HeaderControls>

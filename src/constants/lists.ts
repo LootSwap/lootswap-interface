@@ -17,8 +17,8 @@ const CMC_ALL_LIST = 'defi.cmc.eth'
 const CMC_STABLECOIN = 'stablecoin.cmc.eth'
 const KLEROS_LIST = 't2crtokens.eth'
 const GEMINI_LIST = 'https://www.gemini.com/uniswap/manifest.json'*/
-const LOOTSWAP_DEFAULT_LIST = 'https://lootswap.finance/lootswap/lists/lootswap-default-tokenlist.json'
-const LOOTSWAP_COMMUNITY_LIST = 'https://lootswap.finance/lootswap/lists/lootswap-community-tokenlist.json'
+const LOOTSWAP_DEFAULT_LIST = 'https://legacy.lootswap.finance/lootswap/lists/lootswap-default-tokenlist.json'
+const LOOTSWAP_COMMUNITY_LIST = 'https://legacy.lootswap.finance/lootswap/lists/lootswap-community-tokenlist.json'
 
 // lower index == higher priority for token import
 export const DEFAULT_LIST_OF_LISTS: string[] = [
