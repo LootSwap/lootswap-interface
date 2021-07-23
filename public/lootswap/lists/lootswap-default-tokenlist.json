@@ -1,9 +1,9 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-07-22T19:07:32.089Z",
+  "timestamp": "2021-07-23T04:51:34.448Z",
   "version": {
     "major": 3,
-    "minor": 0,
+    "minor": 1,
     "patch": 0
   },
   "tags": {},
@@ -44,6 +44,14 @@
       "name": "renDOGE",
       "decimals": 8,
       "logoURI": "https://assets.coingecko.com/coins/images/5/small/dogecoin.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x90D81749da8867962c760414C1C25ec926E889b6",
+      "symbol": "1UNI",
+      "name": "Uniswap",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/1UNI.png"
     },
     {
       "chainId": 1666600000,
