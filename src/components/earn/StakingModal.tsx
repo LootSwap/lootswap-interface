@@ -153,7 +153,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
               <BlueCard>
                 <AutoColumn gap="10px">
                   <TYPE.link fontWeight={400} color={'primaryText1'}>
-                    <b>Important:</b> The deposit fee is now <b>0%</b>!
+                    <b>Important:</b> The deposit fee is now <b>5%</b>
                   </TYPE.link>
                 </AutoColumn>
               </BlueCard>
