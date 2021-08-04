@@ -85,6 +85,16 @@ export const STAKING_REWARDS_INFO: {
       pid: 15,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/BARD'),
       active: true
+    },
+    {
+      pid: 16,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'VINCI/WONE'),
+      active: true
+    },
+    {
+      pid: 17,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/GG'),
+      active: true
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],
