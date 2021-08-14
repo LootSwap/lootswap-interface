@@ -1,9 +1,9 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-07-30T16:56:28.463Z",
+  "timestamp": "2021-08-14T01:07:17.946Z",
   "version": {
     "major": 3,
-    "minor": 1,
+    "minor": 3,
     "patch": 0
   },
   "tags": {},
@@ -13,6 +13,14 @@
     "default"
   ],
   "tokens": [
+    {
+      "chainId": 1666600000,
+      "address": "0xab965375C9c109b8e1a4c4f7422B199EE36682B0",
+      "symbol": "$LIFE",
+      "name": "Extra Life",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/$LIFE.png"
+    },
     {
       "chainId": 1666600000,
       "address": "0xEf977d2f931C1978Db5F6747666fa1eACB0d0339",
