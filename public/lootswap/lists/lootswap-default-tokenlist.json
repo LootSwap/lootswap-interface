@@ -1,9 +1,9 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-07-30T16:56:28.463Z",
+  "timestamp": "2021-08-18T06:01:57.207Z",
   "version": {
     "major": 3,
-    "minor": 1,
+    "minor": 5,
     "patch": 0
   },
   "tags": {},
@@ -13,6 +13,14 @@
     "default"
   ],
   "tokens": [
+    {
+      "chainId": 1666600000,
+      "address": "0xab965375C9c109b8e1a4c4f7422B199EE36682B0",
+      "symbol": "$LIFE",
+      "name": "Extra Life",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/$LIFE.png"
+    },
     {
       "chainId": 1666600000,
       "address": "0xEf977d2f931C1978Db5F6747666fa1eACB0d0339",
@@ -215,6 +223,14 @@
     },
     {
       "chainId": 1666600000,
+      "address": "0x6008C8769BFACd92251bA838382e7e5637C7e74D",
+      "symbol": "COSMIC",
+      "name": "Cosmic",
+      "decimals": 9,
+      "logoURI": "https://legacy.lootswap.finance/tokens/COSMIC.png"
+    },
+    {
+      "chainId": 1666600000,
       "address": "0x463C684C0dc0a1163DB5A9b57D9847EFc28C418a",
       "symbol": "GG",
       "name": "GG",
@@ -244,6 +260,14 @@
       "name": "Loot",
       "decimals": 18,
       "logoURI": "https://legacy.lootswap.finance/tokens/LOOT-LP.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x892D81221484F690C0a97d3DD18B9144A3ECDFB7",
+      "symbol": "MAGIC",
+      "name": "Magic",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/MAGIC.png"
     },
     {
       "chainId": 1666600000,
