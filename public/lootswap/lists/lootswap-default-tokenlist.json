@@ -1,9 +1,9 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-08-14T01:07:17.946Z",
+  "timestamp": "2021-08-18T05:48:55.813Z",
   "version": {
     "major": 3,
-    "minor": 3,
+    "minor": 4,
     "patch": 0
   },
   "tags": {},
@@ -252,6 +252,14 @@
       "name": "Loot",
       "decimals": 18,
       "logoURI": "https://legacy.lootswap.finance/tokens/LOOT-LP.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x892D81221484F690C0a97d3DD18B9144A3ECDFB7",
+      "symbol": "MAGIC",
+      "name": "Magic",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/MAGIC.png"
     },
     {
       "chainId": 1666600000,
