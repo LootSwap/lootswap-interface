@@ -1,10 +1,10 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-08-18T06:01:57.207Z",
+  "timestamp": "2021-08-21T02:33:29.742Z",
   "version": {
     "major": 3,
     "minor": 5,
-    "patch": 0
+    "patch": 2
   },
   "tags": {},
   "logoURI": "https://legacy.lootswap.finance/tokens/LOOT.png",
@@ -284,6 +284,14 @@
       "name": "Necromancer",
       "decimals": 18,
       "logoURI": "https://legacy.lootswap.finance/tokens/NECRO.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0xc0431Ddcc0D213Bf27EcEcA8C2362c0d0208c6DC",
+      "symbol": "oSWAP",
+      "name": "OpenSwap Token",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/OSWAP.png"
     },
     {
       "chainId": 1666600000,
