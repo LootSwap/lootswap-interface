@@ -103,7 +103,7 @@ export function useTradeExactIn(currencyAmountIn?: CurrencyAmount, currencyOut?:
       let bestTradeSoFar: Trade | null = null
       for (let i = 1; i <= MAX_HOPS; i++) {
         const currentTrade: Trade | null =
-          Trade.bestTradeExactIn(allowedPairs, currencyAmountIn, currencyOut, { maxHops: i, maxNumResults: 1 })[0] ??
+          Trade.bestTradeExactIn(allowedPairs, currencyAmountIn, currencyOut, { maxHops: 3, maxNumResults: 3 })[0] ??
           null
         // if current trade is best yet, save it
         if (isTradeBetter(bestTradeSoFar, currentTrade, BETTER_TRADE_LESS_HOPS_THRESHOLD)) {
@@ -137,7 +137,7 @@ export function useTradeExactOut(currencyIn?: Currency, currencyAmountOut?: Curr
       let bestTradeSoFar: Trade | null = null
       for (let i = 1; i <= MAX_HOPS; i++) {
         const currentTrade =
-          Trade.bestTradeExactOut(allowedPairs, currencyIn, currencyAmountOut, { maxHops: i, maxNumResults: 1 })[0] ??
+          Trade.bestTradeExactOut(allowedPairs, currencyIn, currencyAmountOut, { maxHops: 3, maxNumResults: 3 })[0] ??
           null
         if (isTradeBetter(bestTradeSoFar, currentTrade, BETTER_TRADE_LESS_HOPS_THRESHOLD)) {
           bestTradeSoFar = currentTrade

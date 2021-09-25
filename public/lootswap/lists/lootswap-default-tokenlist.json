@@ -1,10 +1,10 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-08-18T06:01:57.207Z",
+  "timestamp": "2021-09-24T22:14:36.207Z",
   "version": {
     "major": 3,
     "minor": 5,
-    "patch": 0
+    "patch": 4
   },
   "tags": {},
   "logoURI": "https://legacy.lootswap.finance/tokens/LOOT.png",
@@ -255,6 +255,14 @@
     },
     {
       "chainId": 1666600000,
+      "address": "0xd62bD801A1cb65532DeF9908c67B8C00f432C1bb",
+      "symbol": "LBLOX",
+      "name": "LootBlocks Protocol",
+      "decimals": 18,
+      "logoURI": "https://lootblocks.one/_next/image?url=%2Flootblocks.svg&w=96&q=96"
+    },
+    {
+      "chainId": 1666600000,
       "address": "0xbDa99C8695986B45a0dD3979cC6f3974D9753D30",
       "symbol": "LOOT",
       "name": "Loot",
@@ -284,6 +292,14 @@
       "name": "Necromancer",
       "decimals": 18,
       "logoURI": "https://legacy.lootswap.finance/tokens/NECRO.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0xc0431Ddcc0D213Bf27EcEcA8C2362c0d0208c6DC",
+      "symbol": "oSWAP",
+      "name": "OpenSwap Token",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/OSWAP.png"
     },
     {
       "chainId": 1666600000,

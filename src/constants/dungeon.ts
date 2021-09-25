@@ -75,6 +75,22 @@ export const DUNGEON_POOLS: {
     {
       pid: 17,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/GG')
+    },
+    // {
+    //   pid: 18,
+    //   tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/$LIFE')
+    // },
+    {
+      pid: 19,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/LBLOX')
+    },
+    // {
+    //   pid: 20,
+    //   tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'ONE/$LIFE')
+    // },
+    {
+      pid: 21,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'ONE/LBLOX')
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],
