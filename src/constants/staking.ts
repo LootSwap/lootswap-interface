@@ -95,6 +95,26 @@ export const STAKING_REWARDS_INFO: {
       pid: 17,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/GG'),
       active: true
+    },
+    {
+      pid: 18,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/$LIFE'),
+      active: true
+    },
+    {
+      pid: 19,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'LOOT/LBLOX'),
+      active: true
+    },
+    {
+      pid: 20,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'WONE/$LIFE'),
+      active: true
+    },
+    {
+      pid: 21,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'WONE/LBLOX'),
+      active: true
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],
