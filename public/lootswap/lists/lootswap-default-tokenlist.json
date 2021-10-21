@@ -1,10 +1,10 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-09-24T22:14:36.207Z",
+  "timestamp": "2021-10-21T00:40:13.158Z",
   "version": {
     "major": 3,
     "minor": 5,
-    "patch": 4
+    "patch": 5
   },
   "tags": {},
   "logoURI": "https://legacy.lootswap.finance/tokens/LOOT.png",
@@ -212,6 +212,14 @@
       "name": "Binance USD",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/9576/small/BUSD.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x6cc35220349C444c39b8e26b359757739aAEc952",
+      "symbol": "CGS",
+      "name": "Cougar Token",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/CGS.png"
     },
     {
       "chainId": 1666600000,
