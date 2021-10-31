@@ -1,10 +1,10 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-10-21T00:40:13.158Z",
+  "timestamp": "2021-10-31T19:00:29.269Z",
   "version": {
     "major": 3,
     "minor": 5,
-    "patch": 5
+    "patch": 6
   },
   "tags": {},
   "logoURI": "https://legacy.lootswap.finance/tokens/LOOT.png",
@@ -116,6 +116,14 @@
       "name": "Bard",
       "decimals": 18,
       "logoURI": "https://legacy.lootswap.finance/tokens/BARD.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x495500b582ab72AD47Eb2D301469CE799BDdF9e4",
+      "symbol": "BOOM",
+      "name": "Boomers",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/BOOM.png"
     },
     {
       "chainId": 1666600000,
@@ -239,6 +247,14 @@
     },
     {
       "chainId": 1666600000,
+      "address": "0x584705c40E7DF1fcfc06cb0Ad5223E0F5BC8e6E2",
+      "symbol": "FOOL",
+      "name": "FOOL",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/FOOL.png"
+    },
+    {
+      "chainId": 1666600000,
       "address": "0x463C684C0dc0a1163DB5A9b57D9847EFc28C418a",
       "symbol": "GG",
       "name": "GG",
@@ -260,6 +276,14 @@
       "name": "TokenJenny",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/15868/small/VNhEzm2X_400x400.jpg"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0xed2A4E1577F7C90d84915250278B685bD6e498b3",
+      "symbol": "LAZR",
+      "name": "LAZR",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/LAZR.png"
     },
     {
       "chainId": 1666600000,
