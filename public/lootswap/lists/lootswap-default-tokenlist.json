@@ -1,10 +1,10 @@
 {
   "name": "LootSwap Default",
-  "timestamp": "2021-10-31T19:00:29.269Z",
+  "timestamp": "2021-11-09T00:11:05.924Z",
   "version": {
     "major": 3,
     "minor": 5,
-    "patch": 6
+    "patch": 7
   },
   "tags": {},
   "logoURI": "https://legacy.lootswap.finance/tokens/LOOT.png",
@@ -20,6 +20,14 @@
       "name": "Extra Life",
       "decimals": 18,
       "logoURI": "https://legacy.lootswap.finance/tokens/$LIFE.png"
+    },
+    {
+      "chainId": 1666600000,
+      "address": "0x352cd428EFd6F31B5cae636928b7B84149cF369F",
+      "symbol": "1CRV",
+      "name": "Curve DAO Token",
+      "decimals": 18,
+      "logoURI": "https://legacy.lootswap.finance/tokens/CRV.png"
     },
     {
       "chainId": 1666600000,
