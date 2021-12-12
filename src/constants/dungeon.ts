@@ -91,6 +91,10 @@ export const DUNGEON_POOLS: {
     {
       pid: 21,
       tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'ONE/LBLOX')
+    },
+    {
+      pid: 22,
+      tokens: getPairTokensWithDefaults(ChainId.HARMONY_MAINNET, 'ONE/CGS')
     }
   ],
   [ChainId.HARMONY_TESTNET]: [],
